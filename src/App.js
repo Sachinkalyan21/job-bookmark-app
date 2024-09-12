@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Jobs from "./Jobs";
+import Bookmarks from "./Bookmarks";
 
 function App() {
+  const [currentView, setCurrentView] = useState('jobs');
+  const [bookmarkedJobs, setBookmarkedJobs] = useState([]);
+
+  const handleBookmark = (job) => {
+   
+
+    setBookmarkedJobs((prevBookmarks) => [...prevBookmarks, job]);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {/* Bottom Navigation */}
+      <div className="bottom-navigation">
+        <button onClick={() => setCurrentView('jobs')}>Jobs</button>
+        <button onClick={() => setCurrentView('bookmarks')}>Bookmarks</button>
+      </div>
+
+      {/* Rendering Jobs or Bookmarks based on current view */}
+      {currentView === 'jobs' && <Jobs onBookmark={handleBookmark} />}
+      {currentView === 'bookmarks' && <Bookmarks bookmarkedJobs={bookmarkedJobs} />}
     </div>
   );
 }
 
 export default App;
+

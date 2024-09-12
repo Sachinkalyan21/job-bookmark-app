@@ -27,6 +27,14 @@
 .App-link {
   color: #61dafb;
 }
+.job-list{
+  background-image: url("https://etimg.etb2bimg.com/thumb/msid-89958942,imgsize-41122,width-1200,height=765,overlay-etbrandequity/digital/naukri-coms-20-year-job-search.jpg");
+  
+  min-height: 100vh;
+}
+.job-title{
+  color: white;
+}
 
 @keyframes App-logo-spin {
   from {
@@ -35,4 +43,7 @@
   to {
     transform: rotate(360deg);
   }
+  
 }
+
+
